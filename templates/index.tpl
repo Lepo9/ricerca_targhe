@@ -93,8 +93,9 @@
                 <input class="form-input" name="Acolore" type="text" id="colore" placeholder="Colore parziale">
             </div>
         </div>
-        <h5>Se di un campo conosci solo i dati parziali puoi inserire il "-" per un carattere oppure il "*" per più
-            caratteri</h5>
+        <p>Se di un campo conosci solo i dati parziali puoi inserire il "_" per un carattere mancante oppure il "%" per
+            più
+            caratteri mancanti</p>
         <input type="submit" class="btn btn-primary" id="cerca" value="Cerca il veicolo">
     </div>
 </form>
