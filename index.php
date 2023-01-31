@@ -4,7 +4,7 @@ require_once 'vendor/autoload.php';
 require_once 'conf/config.php';
 
 use League\Plates\Engine;
-use Model\TodoRepository;
+use Model\Getter;
 
 $template = new Engine('templates', 'tpl');
 
@@ -117,6 +117,11 @@ $colori = [
     ['colore' => 'Violetto'],
     ['colore' => 'Zaffiro'],
 ];
+
+$marche = Getter::getMarche();
+$modelli = Getter::getModelli();
+$colori = Getter::getColori();
+
 
 $data = [
     'marche' => $marche,
