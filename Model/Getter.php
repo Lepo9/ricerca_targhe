@@ -44,7 +44,7 @@ class Getter
         return $stmt->fetchAll();
     }
 
-    public static function getColore(): array
+    public static function getColori(): array
     {
         $pdo = Connection::getInstance();
         $sql = 'SELECT distinct colore FROM veicolo';
