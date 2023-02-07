@@ -13,6 +13,12 @@ $marcaCorrente = "Sconosciuta";
 $modelloCorrente = "Sconosciuto";
 $coloreCorrente = "Sconosciuto";
 
+if (isset($_POST['targa'])) {
+    $targaCorrente = $_POST['targa'];
+    $marcaCorrente = $_POST['marca'];
+    $modelloCorrente = $_POST['modello'];
+    $coloreCorrente = $_POST['colore'];
+}
 
 $marche = Getter::getMarche();
 $modelli = Getter::getModelli();
