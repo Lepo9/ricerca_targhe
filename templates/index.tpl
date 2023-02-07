@@ -29,6 +29,12 @@
             <div class="col-9 col-sm-12">
                 <input class="form-input" name="targa" type="text" id="targa" placeholder="CD985FM">
             </div>
+            <div class="col-3 col-sm-12"></div>
+            <div class="col-9 col-sm-12">
+                <p>Se conosci solo i dati parziali puoi inserire il "_" per un carattere oppure "%" per più
+                    caratteri</p>
+            </div>
+
         </div>
     </div>
     <div class="form-horizontal">
@@ -73,6 +79,16 @@
                         <option><?= $colore['colore'] ?></option>
                     <?php endforeach; ?>
                 </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-3 col-sm-12">
+
+            </div>
+            <div class="col-9 col-sm-12">
+                <input type="submit" class="btn btn-primary" id="cerca" value="Cerca il veicolo">
             </div>
         </div>
     </div>
