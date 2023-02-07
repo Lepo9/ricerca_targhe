@@ -20,7 +20,7 @@ $colori = Getter::getColori();
 
 
 $data = [
-    'tag' => $targaCorrente,
+    'tac' => $targaCorrente,
     'mac' => $marcaCorrente,
     'moc' => $modelloCorrente,
     'coc' => $coloreCorrente,
