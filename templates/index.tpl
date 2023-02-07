@@ -49,7 +49,7 @@
                 <select class="form-select select" name="marca">
                     <option>Sconosciuta</option>
                     <?php foreach ($marche as $marca): ?>
-                        <option>
+                        <option <?php if ($marca['marca'] == $mac) echo 'selected' ?>>
                             <?= $marca['marca'] ?>
                         </option>
 
@@ -67,7 +67,9 @@
                 <select class="form-select select" name="modello">
                     <option>Sconosciuto</option>
                     <?php foreach ($modelli as $modello): ?>
-                        <option><?= $modello['modello'] ?></option>
+                        <option <?php if ($modello['modello'] == $moc) echo 'selected' ?>>
+                            <?= $modello['modello'] ?>
+                        </option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -82,7 +84,9 @@
                 <select class="form-select select" name="colore">
                     <option>Sconosciuto</option>
                     <?php foreach ($colori as $colore): ?>
-                        <option><?= $colore['colore'] ?></option>
+                        <option <?php if ($colore['colore'] == $coc) echo 'selected' ?>>
+                            <?= $colore['colore'] ?>
+                        </option>
                     <?php endforeach; ?>
                 </select>
             </div>
