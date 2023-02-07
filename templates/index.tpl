@@ -5,7 +5,10 @@
  * @var $marche
  * @var $modelli
  * @var $colori
- *
+ * @var $tac
+ * @var $mac
+ * @var $moc
+ * @var $coc
  * questa pagina si occuperà solo della ricerca del veicolo
  */
 ?>
@@ -27,19 +30,26 @@
                 <label class="form-checkbox">Targa del veicolo</label>
             </div>
             <div class="col-9 col-sm-12">
-                <input class="form-input" name="targa" type="text" id="targa" placeholder="CD985FM">
+                <input class="form-input" name="targa" type="text" id="targa" placeholder="CD985FM" value="<?= $tac ?>">
             </div>
+            <div class="col-3 col-sm-12"></div>
+            <div class="col-9 col-sm-12">
+                <p>Se conosci solo i dati parziali puoi inserire il "_" per un carattere oppure "%" per più
+                    caratteri</p>
+            </div>
+
         </div>
     </div>
     <div class="form-horizontal">
         <div class="form-group">
             <div class="col-3 col-sm-12">
-                <label class="form-checkbox">Targa del veicolo</label>
+                <label class="form-checkbox">Marca</label>
             </div>
             <div class="col-9 col-sm-12">
                 <select class="form-select select" name="marca">
+                    <option>Sconosciuta</option>
                     <?php foreach ($marche as $marca): ?>
-                        <option>
+                        <option <?php if ($marca['marca'] == $mac) echo 'selected' ?>>
                             <?= $marca['marca'] ?>
                         </option>
 
@@ -51,12 +61,15 @@
     <div class="form-horizontal">
         <div class="form-group">
             <div class="col-3 col-sm-12">
-                <label class="form-checkbox">Targa del veicolo</label>
+                <label class="form-checkbox">Modello</label>
             </div>
             <div class="col-9 col-sm-12">
                 <select class="form-select select" name="modello">
+                    <option>Sconosciuto</option>
                     <?php foreach ($modelli as $modello): ?>
-                        <option><?= $modello['modello'] ?></option>
+                        <option <?php if ($modello['modello'] == $moc) echo 'selected' ?>>
+                            <?= $modello['modello'] ?>
+                        </option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -65,14 +78,27 @@
     <div class="form-horizontal">
         <div class="form-group">
             <div class="col-3 col-sm-12">
-                <label class="form-checkbox">Targa del veicolo</label>
+                <label class="form-checkbox">Colore</label>
             </div>
             <div class="col-9 col-sm-12">
                 <select class="form-select select" name="colore">
+                    <option>Sconosciuto</option>
                     <?php foreach ($colori as $colore): ?>
-                        <option><?= $colore['colore'] ?></option>
+                        <option <?php if ($colore['colore'] == $coc) echo 'selected' ?>>
+                            <?= $colore['colore'] ?>
+                        </option>
                     <?php endforeach; ?>
                 </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-3 col-sm-12">
+
+            </div>
+            <div class="col-9 col-sm-12">
+                <input type="submit" class="btn btn-primary" id="cerca" value="Cerca il veicolo">
             </div>
         </div>
     </div>
