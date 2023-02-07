@@ -9,7 +9,9 @@ class Getter
     public static function getVeicolo(string $targa, string $marca, string $colore, string $modello): array
     {
         $pdo = Connection::getInstance();
-        $sql = "SELECT * from veicolo where targa like :targa and marca like :marca and colore like :colore and modello like :modello";
+        $sql = "SELECT * from veicolo 
+                    where targa like :targa or marca like :marca or colore like :colore or modello like :modello 
+                    order by targa asc, marca asc, modello asc, colore asc";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
             'targa' => '%' . $targa . '%',
@@ -23,7 +25,7 @@ class Getter
     public static function getTarghe(): array
     {
         $pdo = Connection::getInstance();
-        $sql = 'SELECT targa FROM veicolo';
+        $sql = 'SELECT targa FROM veicolo ORDER BY targa ASC';
         $stmt = $pdo->query($sql);
         return $stmt->fetchAll();
     }
@@ -31,7 +33,7 @@ class Getter
     public static function getMarche(): array
     {
         $pdo = Connection::getInstance();
-        $sql = 'SELECT distinct marca FROM veicolo';
+        $sql = 'SELECT distinct marca FROM veicolo ORDER BY marca ASC';
         $stmt = $pdo->query($sql);
         return $stmt->fetchAll();
     }
@@ -39,7 +41,7 @@ class Getter
     public static function getModelli(): array
     {
         $pdo = Connection::getInstance();
-        $sql = 'SELECT distinct modello FROM veicolo';
+        $sql = 'SELECT distinct modello FROM veicolo ORDER BY modello ASC';
         $stmt = $pdo->query($sql);
         return $stmt->fetchAll();
     }
@@ -47,7 +49,7 @@ class Getter
     public static function getColori(): array
     {
         $pdo = Connection::getInstance();
-        $sql = 'SELECT distinct colore FROM veicolo';
+        $sql = 'SELECT distinct colore FROM veicolo ORDER BY colore ASC';
         $stmt = $pdo->query($sql);
         return $stmt->fetchAll();
     }
