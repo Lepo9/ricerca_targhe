@@ -3,6 +3,13 @@
   <component name="PublishConfigData" autoUpload="Always" serverName="xampp" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
     <option name="confirmBeforeUploading" value="false" />
     <serverData>
+      <paths name="winnie">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="xampp">
         <serverdata>
           <mappings>

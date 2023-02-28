@@ -5,6 +5,13 @@
       <webServer id="f00c7cd9-7d4c-4003-9b30-64ea024741c9" name="xampp" url="http://localhost/ricerca_targhe">
         <fileTransfer mountedRoot="C:\xampp\htdocs\ricerca_targhe" accessType="MOUNT" port="0" />
       </webServer>
+      <webServer id="4e906f60-916b-4f9c-82b4-04ac4ea5cce7" name="winnie" url="http://10.4.55.123/~lepo9/ricerca_targhe/">
+        <fileTransfer rootFolder="/home/lepo9/public_html/ricerca_targhe" accessType="SFTP" host="10.4.55.123" port="22" sshConfigId="66c8bab2-d9cd-4d65-ab58-5a92d40fd8cb" sshConfig="lepo9@10.4.55.123:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>

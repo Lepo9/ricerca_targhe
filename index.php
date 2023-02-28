@@ -25,6 +25,10 @@ $modelli = Getter::getModelli();
 $colori = Getter::getColori();
 
 
+$veicoli = Getter::getVeicoli($targaCorrente, $marcaCorrente, $coloreCorrente, $modelloCorrente);
+
+//var_dump($veicoli);
+
 $data = [
     'tac' => $targaCorrente,
     'mac' => $marcaCorrente,
@@ -33,6 +37,7 @@ $data = [
     'marche' => $marche,
     'modelli' => $modelli,
     'colori' => $colori,
+    'veicoli' => $veicoli
 ];
 
 echo $template->render('index', $data);
