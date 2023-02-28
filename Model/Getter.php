@@ -8,16 +8,19 @@ class Getter
 {
     public static function getVeicoli(string $targa, string $marca, string $colore, string $modello): array
     {
+        if ($marca == "Sconosciuta") $marca = "%";
+        if ($modello == "Sconosciuto") $modello = "%";
+        if ($colore == "Sconosciuto") $colore = "%";
         $pdo = Connection::getInstance();
         $sql = "SELECT * from veicolo 
-                    where targa like :targa or marca like :marca or colore like :colore or modello like :modello 
+                    where targa like :targa AND marca like :marca AND colore like :colore AND modello like :modello 
                     order by targa asc, marca asc, modello asc, colore asc";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
             'targa' => '%' . $targa . '%',
-            'marca' => '%' . $marca . '%',
-            'colore' => '%' . $colore . '%',
-            'modello' => '%' . $modello . '%',
+            'marca' => $marca,
+            'colore' => $colore,
+            'modello' => $modello
         ]);
         return $stmt->fetchAll();
     }
