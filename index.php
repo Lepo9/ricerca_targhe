@@ -27,7 +27,7 @@ $colori = Getter::getColori();
 
 $veicoli = Getter::getVeicoli($targaCorrente, $marcaCorrente, $coloreCorrente, $modelloCorrente);
 
-var_dump($veicoli);
+//var_dump($veicoli);
 
 $data = [
     'tac' => $targaCorrente,

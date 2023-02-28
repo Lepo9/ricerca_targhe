@@ -8,6 +8,7 @@ class Getter
 {
     public static function getVeicoli(string $targa, string $marca, string $colore, string $modello): array
     {
+        if ($targa == "") $targa = "%";
         if ($marca == "Sconosciuta") $marca = "%";
         if ($modello == "Sconosciuto") $modello = "%";
         if ($colore == "Sconosciuto") $colore = "%";
@@ -17,7 +18,7 @@ class Getter
                     order by targa asc, marca asc, modello asc, colore asc";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
-            'targa' => '%' . $targa . '%',
+            'targa' => $targa,
             'marca' => $marca,
             'colore' => $colore,
             'modello' => $modello

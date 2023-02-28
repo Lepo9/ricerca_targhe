@@ -9,6 +9,7 @@
  * @var $mac
  * @var $moc
  * @var $coc
+ * @var $veicoli
  * questa pagina si occuperà solo della ricerca del veicolo
  */
 ?>
@@ -106,5 +107,32 @@
 
 
 <h5 class="text-center">Se devi inserire un nuovo veicolo premi <a href="index.php?add=1" class="btn">qui</a></h5>
+
+
+<table class="table table-striped table-hover">
+    <tr class="text-center">
+        <th>Targa</th>
+        <th>Marca</th>
+        <th>Modello</th>
+        <th>Colore</th>
+        <th>Nome proprietario</th>
+        <th>Cognome proprietario</th>
+        <th>CF proprietario</th>
+
+    </tr>
+    <?php foreach ($veicoli as $v): ?>
+        <tr class="text-center">
+            <td><?= $v['targa']?></td>
+            <td><?= $v['marca']?></td>
+            <td><?= $v['modello']?></td>
+            <td><?= $v['colore']?></td>
+            <td><?= $v['nome_proprietario']?></td>
+            <td><?= $v['cognome_proprietario']?></td>
+            <td><?= $v['codice_fiscale']?></td>
+        </tr>
+    <?php endforeach; ?>
+
+</table>
+
 
 
