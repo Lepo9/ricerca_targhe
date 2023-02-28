@@ -6,7 +6,7 @@ use Util\Connection;
 
 class Getter
 {
-    public static function getVeicolo(string $targa, string $marca, string $colore, string $modello): array
+    public static function getVeicoli(string $targa, string $marca, string $colore, string $modello): array
     {
         $pdo = Connection::getInstance();
         $sql = "SELECT * from veicolo 
