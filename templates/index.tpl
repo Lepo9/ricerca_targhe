@@ -28,7 +28,7 @@
     <div class="form-horizontal">
         <div class="form-group">
             <div class="col-3 col-sm-12">
-                <label class="form-checkbox">Targa del veicolo</label>
+                <label class="form-checkbox" for="targa">Targa del veicolo</label>
             </div>
             <div class="col-9 col-sm-12">
                 <input class="form-input" name="targa" type="text" id="targa" placeholder="CD985FM" value="<?= $tac ?>">
@@ -44,10 +44,10 @@
     <div class="form-horizontal">
         <div class="form-group">
             <div class="col-3 col-sm-12">
-                <label class="form-checkbox">Marca</label>
+                <label class="form-checkbox" for="marca">Marca</label>
             </div>
             <div class="col-9 col-sm-12">
-                <select class="form-select select" name="marca">
+                <select class="form-select select" name="marca" id="marca">
                     <option>Sconosciuta</option>
                     <?php foreach ($marche as $marca): ?>
                         <option <?php if ($marca['marca'] == $mac) echo 'selected' ?>>
@@ -62,10 +62,10 @@
     <div class="form-horizontal">
         <div class="form-group">
             <div class="col-3 col-sm-12">
-                <label class="form-checkbox">Modello</label>
+                <label class="form-checkbox" for="modello">Modello</label>
             </div>
             <div class="col-9 col-sm-12">
-                <select class="form-select select" name="modello">
+                <select class="form-select select" name="modello" id="modello">
                     <option>Sconosciuto</option>
                     <?php foreach ($modelli as $modello): ?>
                         <option <?php if ($modello['modello'] == $moc) echo 'selected' ?>>
@@ -79,10 +79,10 @@
     <div class="form-horizontal">
         <div class="form-group">
             <div class="col-3 col-sm-12">
-                <label class="form-checkbox">Colore</label>
+                <label class="form-checkbox" for="colore">Colore</label>
             </div>
             <div class="col-9 col-sm-12">
-                <select class="form-select select" name="colore">
+                <select class="form-select select" name="colore" id="colore">
                     <option>Sconosciuto</option>
                     <?php foreach ($colori as $colore): ?>
                         <option <?php if ($colore['colore'] == $coc) echo 'selected' ?>>
@@ -106,7 +106,7 @@
 </form>
 
 
-<h5 class="text-center">Se devi inserire un nuovo veicolo premi <a href="index.php?add=1" class="btn">qui</a></h5>
+<h5 class="text-center">Se devi inserire un nuovo veicolo premi <a href="inserimento.php" class="btn">qui</a></h5>
 
 
 <table class="table table-striped table-hover">
@@ -122,13 +122,13 @@
     </tr>
     <?php foreach ($veicoli as $v): ?>
         <tr class="text-center">
-            <td><?= $v['targa']?></td>
-            <td><?= $v['marca']?></td>
-            <td><?= $v['modello']?></td>
-            <td><?= $v['colore']?></td>
-            <td><?= $v['nome_proprietario']?></td>
-            <td><?= $v['cognome_proprietario']?></td>
-            <td><?= $v['codice_fiscale']?></td>
+            <td><?= $v['targa'] ?></td>
+            <td><?= $v['marca'] ?></td>
+            <td><?= $v['modello'] ?></td>
+            <td><?= $v['colore'] ?></td>
+            <td><?= $v['nome_proprietario'] ?></td>
+            <td><?= $v['cognome_proprietario'] ?></td>
+            <td><?= $v['codice_fiscale'] ?></td>
         </tr>
     <?php endforeach; ?>
 

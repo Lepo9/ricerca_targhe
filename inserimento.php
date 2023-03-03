@@ -124,4 +124,4 @@ $data = [
     'colori' => $colori,
 ];
 
-echo $template->render('index', $data);
+echo $template->render('inserimento', $data);
