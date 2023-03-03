@@ -8,9 +8,9 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/spectre.min.css">
-    <link rel="stylesheet" href="../css/spectre-exp.min.css">
-    <link rel="stylesheet" href="../css/spectre-icons.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
     <title><?= $this->e($titolo) ?></title>
 </head>
 <body>
