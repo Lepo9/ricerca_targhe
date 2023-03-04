@@ -98,4 +98,11 @@ class Getter
         return $stmt->fetchAll();
     }
 
+    public static function getProprietari(): array
+    {
+        $pdo = Connection::getInstance();
+        $sql = 'SELECT cognome_proprietario, nome_proprietario, codice_fiscale FROM veicolo ORDER BY cognome_proprietario ASC, nome_proprietario ASC';
+        $stmt = $pdo->query($sql);
+        return $stmt->fetchAll();
+    }
 }
