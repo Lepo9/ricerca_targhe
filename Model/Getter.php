@@ -101,8 +101,76 @@ class Getter
     public static function getProprietari(): array
     {
         $pdo = Connection::getInstance();
-        $sql = 'SELECT id, cognome_proprietario, nome_proprietario, codice_fiscale FROM veicolo ORDER BY cognome_proprietario, nome_proprietario ';
+        $sql = 'SELECT DISTINCT id, cognome_proprietario, nome_proprietario, codice_fiscale FROM veicolo ORDER BY cognome_proprietario, nome_proprietario ';
         $stmt = $pdo->query($sql);
         return $stmt->fetchAll();
     }
+
+    public static function aggiungiProprietario(
+        string $nome_proprietario,
+        string $cognome_proprietario,
+        string $codice_fiscale
+    )
+    {
+        $pdo = Connection::getInstance();
+        $sql = 'INSERT INTO veicolo (
+                     nome_proprietario, 
+                     cognome_proprietario, 
+                     codice_fiscale) 
+                VALUES (
+                        :nome_proprietario, 
+                        :cognome_proprietario, 
+                        :codice_fiscale)';
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
+            'nome_proprietario' => $nome_proprietario,
+            'cognome_proprietario' => $cognome_proprietario,
+            'codice_fiscale' => $codice_fiscale,
+        ]);
+    }
+
+    public static function aggiungiVeicolo(
+        string $targa,
+        string $marca,
+        string $modello,
+        string $colore,
+        int    $id_proprietario
+    )
+    {
+        $pdo = Connection::getInstance();
+        $sql = 'SELECT nome_proprietario, cognome_proprietario, codice_fiscale FROM veicolo WHERE id = :id_proprietario';
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
+            'id_proprietario' => $id_proprietario,
+        ]);
+        $proprietario = $stmt->fetch();
+
+        $sql = 'INSERT INTO veicolo (
+                     targa, 
+                     marca, 
+                     modello, 
+                     colore,
+                     nome_proprietario,
+                     cognome_proprietario,
+                     codice_fiscale) 
+                VALUES (
+                        :targa, 
+                        :marca, 
+                        :modello, 
+                        :colore,
+                        :nome_proprietario,
+                        :cognome_proprietario,
+                        :codice_fiscale)';
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([
+            'targa' => $targa,
+            'marca' => $marca,
+            'modello' => $modello,
+            'colore' => $colore,
+            'nome_proprietario' => $proprietario['nome_proprietario'],
+            'cognome_proprietario' => $proprietario['cognome_proprietario'],
+            'codice_fiscale' => $proprietario['codice_fiscale'],
+        ]);
+    }
+
 }
