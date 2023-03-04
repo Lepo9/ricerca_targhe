@@ -15,7 +15,7 @@ class Getter
         $pdo = Connection::getInstance();
         $sql = "SELECT * from veicolo 
                     where targa like :targa AND marca like :marca AND colore like :colore AND modello like :modello 
-                    order by targa asc, marca asc, modello asc, colore asc";
+                    order by targa, marca, modello, colore";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
             'targa' => $targa,
@@ -29,7 +29,7 @@ class Getter
     public static function getTarghe(): array
     {
         $pdo = Connection::getInstance();
-        $sql = 'SELECT targa FROM veicolo ORDER BY targa ASC';
+        $sql = 'SELECT targa FROM veicolo ORDER BY targa';
         $stmt = $pdo->query($sql);
         return $stmt->fetchAll();
     }
@@ -37,7 +37,7 @@ class Getter
     public static function getMarche(): array
     {
         $pdo = Connection::getInstance();
-        $sql = 'SELECT distinct marca FROM veicolo ORDER BY marca ASC';
+        $sql = 'SELECT distinct marca FROM veicolo ORDER BY marca';
         $stmt = $pdo->query($sql);
         return $stmt->fetchAll();
     }
@@ -45,7 +45,7 @@ class Getter
     public static function getModelli(): array
     {
         $pdo = Connection::getInstance();
-        $sql = 'SELECT distinct modello FROM veicolo ORDER BY modello ASC';
+        $sql = 'SELECT distinct modello FROM veicolo ORDER BY modello';
         $stmt = $pdo->query($sql);
         return $stmt->fetchAll();
     }
@@ -53,7 +53,7 @@ class Getter
     public static function getColori(): array
     {
         $pdo = Connection::getInstance();
-        $sql = 'SELECT distinct colore FROM veicolo ORDER BY colore ASC';
+        $sql = 'SELECT distinct colore FROM veicolo ORDER BY colore';
         $stmt = $pdo->query($sql);
         return $stmt->fetchAll();
     }
@@ -101,7 +101,7 @@ class Getter
     public static function getProprietari(): array
     {
         $pdo = Connection::getInstance();
-        $sql = 'SELECT cognome_proprietario, nome_proprietario, codice_fiscale FROM veicolo ORDER BY cognome_proprietario ASC, nome_proprietario ASC';
+        $sql = 'SELECT id, cognome_proprietario, nome_proprietario, codice_fiscale FROM veicolo ORDER BY cognome_proprietario, nome_proprietario ';
         $stmt = $pdo->query($sql);
         return $stmt->fetchAll();
     }

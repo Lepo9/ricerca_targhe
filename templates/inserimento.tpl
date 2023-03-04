@@ -5,6 +5,8 @@
  * @var $marche
  * @var $modelli
  * @var $colori
+ * @var $proprietari
+ *
  *
  * questa pagina si occuperà solo della ricerca del veicolo
  */
@@ -31,8 +33,8 @@
         </div>
         <div class="col-9 col-sm-12">
             <select class="form-select select" name="n_proprietario" id="proprietario">
-                <?php foreach ($colori as $colore): ?>
-                    <option><?= $colore['colore'] ?></option>
+                <?php foreach ($proprietari as $p): ?>
+                    <option value=<?= $p['id'] ?>><?= $p['cognome_proprietario'] ?> <?= $p['nome_proprietario'] ?> <?= $p['codice_fiscale'] ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
