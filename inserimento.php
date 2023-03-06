@@ -29,10 +29,10 @@ $t = 0;
 if (isset($_POST['id_proprietario'])) {
     $buonfine = 1;
     $id_proprietario = $_POST['id_proprietario'];
-    $nome_proprietario = $_POST['n_proprietario'];
-    $cognome_proprietario = $_POST['c_proprietario'];
-    $codice_fiscale = $_POST['cf'];
-    $targa = $_POST['targa'];
+    $nome_proprietario = ucwords(strtolower($_POST['n_proprietario']));
+    $cognome_proprietario = ucwords(strtolower($_POST['c_proprietario']));
+    $codice_fiscale = strtoupper($_POST['cf']);
+    $targa = strtoupper($_POST['targa']);
     $marca = $_POST['marca'];
     $modello = $_POST['modello'];
     $colore = $_POST['colore'];
@@ -44,9 +44,9 @@ if (isset($_POST['id_proprietario'])) {
     if ($t == 0) $nuovo_proprietario = false;
     if ($t != 0 && $t != 3) $buonfine = -1;
     if ($targa == "" || strlen($targa) != 7) $buonfine = -1;
-    if ($_POST['Amarca'] != "") $marca = $_POST['Amarca'];
-    if ($_POST['Amodello'] != "") $modello = $_POST['Amodello'];
-    if ($_POST['Acolore'] != "") $colore = $_POST['Acolore'];
+    if ($_POST['Amarca'] != "") $marca = ucwords(strtolower($_POST['Amarca']));
+    if ($_POST['Amodello'] != "") $modello = ucwords(strtolower($_POST['Amodello']));
+    if ($_POST['Acolore'] != "") $colore = ucwords(strtolower($_POST['Acolore']));
 }
 if ($buonfine == 1) {
     $messaggio = "Veicolo aggiunto al db";
