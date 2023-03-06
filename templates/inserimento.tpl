@@ -8,6 +8,17 @@
  * @var $proprietari
  * @var $messaggio
  * @var $buonfine
+ * @var $lid
+ * @var $lnome
+ * @var $lcognome
+ * @var $lcodice_fiscale
+ * @var $ltarga
+ * @var $lmarca
+ * @var $lmodello
+ * @var $lcolore
+ * @var $lamarca
+ * @var $lamodello
+ * @var $lacolore
  *
  *
  */
@@ -45,9 +56,19 @@ else if ($buonfine == -1) echo "text-error" ?>">
         </div>
         <div class="col-9 col-sm-12">
             <select class="form-select select" name="id_proprietario" id="proprietario">
-                <?php foreach ($proprietari as $p): ?>
-                    <option value=<?= $p['id'] ?>><?= $p['cognome_proprietario'] ?> <?= $p['nome_proprietario'] ?> <?= $p['codice_fiscale'] ?></option>
-                <?php endforeach; ?>
+                <?php if ($lid == ''): ?>
+                    <?php foreach ($proprietari as $p): ?>
+                        <option value=<?= $p['id'] ?>><?= $p['cognome_proprietario'] ?> <?= $p['nome_proprietario'] ?> <?= $p['codice_fiscale'] ?></option>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                <?php if ($lid != ''): ?>
+                    <?php foreach ($proprietari as $p): ?>
+                        <option
+                            <?php if ($lid == $p['id']) echo 'selected'; ?>
+                                value=<?= $p['id'] ?>><?= $p['cognome_proprietario'] ?> <?= $p['nome_proprietario'] ?> <?= $p['codice_fiscale'] ?></option>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+
             </select>
         </div>
     </div>

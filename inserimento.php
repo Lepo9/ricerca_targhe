@@ -11,6 +11,18 @@ $template = new Engine('templates', 'tpl');
 
 $messaggio = "";
 
+$lid = '';
+$lnome = '';
+$lcognome = '';
+$lcodice_fiscale = '';
+$ltarga = '';
+$lmarca = '';
+$lmodello = '';
+$lcolore = '';
+$lamarca = '';
+$lamodello = '';
+$lacolore = '';
+
 $buonfine = 0;
 $nuovo_proprietario = true;
 if (isset($_POST['id_proprietario'])) {
@@ -38,8 +50,20 @@ if (isset($_POST['id_proprietario'])) {
 if ($buonfine == 1) {
     $messaggio = "Veicolo aggiunto al db";
 
-} else if ($buonfine == -1)
+} else if ($buonfine == -1) {
     $messaggio = "Errore: dati inseriti non validi";
+    $lid = $id_proprietario;
+    $ltarga = $targa;
+    $lnome = $nome_proprietario;
+    $lcognome = $cognome_proprietario;
+    $lcodice_fiscale = $codice_fiscale;
+    $lmarca = $marca;
+    $lmodello = $modello;
+    $lcolore = $colore;
+    $lamarca = $_POST['Amarca'];
+    $lamodello = $_POST['Amodello'];
+    $lacolore = $_POST['Acolore'];
+}
 
 
 $marche = Getter::getMarche();
@@ -57,6 +81,17 @@ $data = [
     'modelli' => $modelli,
     'colori' => $colori,
     'proprietari' => $proprietari,
+    'lid' => $lid,
+    'lnome' => $lnome,
+    'lcognome' => $lcognome,
+    'lcodice_fiscale' => $lcodice_fiscale,
+    'ltarga' => $ltarga,
+    'lmarca' => $lmarca,
+    'lmodello' => $lmodello,
+    'lcolore' => $lcolore,
+    'lamarca' => $lamarca,
+    'lamodello' => $lamodello,
+    'lacolore' => $lacolore,
 ];
 
 echo $template->render('inserimento', $data);
