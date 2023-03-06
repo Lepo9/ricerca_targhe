@@ -115,7 +115,7 @@ else if ($buonfine == -1) echo "text-error" ?>">
 
     <div class="form-group">
         <div class="col-3 col-sm-12">
-            <label class="form-label" for="targa">Targa del nuovo veicolo</label>
+            <label class="form-label" for="targa">Targa del nuovo veicolo (7 cifre)</label>
         </div>
         <div class="col-3 col-sm-12">
             <input required class="form-input" name="targa" type="text" id="targa" placeholder="CD985FM"
@@ -129,13 +129,22 @@ else if ($buonfine == -1) echo "text-error" ?>">
         </div>
         <div class="col-5 col-sm-12">
             <select class="form-select select" name="marca" id="marca">
-                <?php foreach ($marche as $marca): ?>
-                    <option><?= $marca['marca'] ?></option>
-                <?php endforeach; ?>
+                <?php if ($lmarca == ''): ?>
+                    <?php foreach ($marche as $marca): ?>
+                        <option><?= $marca['marca'] ?></option>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                <?php if ($lmarca != ''): ?>
+                    <?php foreach ($marche as $marca): ?>
+                        <option <?php if ($marca['marca'] == $lmarca) echo 'selected'; ?>><?= $marca['marca'] ?></option>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </select>
         </div>
+
         <div class="col-5 col-sm-12">
-            <input class="form-input" name="Amarca" type="text" id="marca" placeholder="Marca non presente">
+            <input class="form-input" name="Amarca" type="text" id="marca" placeholder="Marca non presente"
+                   value="<?= $lamarca ?>">
         </div>
     </div>
 
@@ -145,13 +154,21 @@ else if ($buonfine == -1) echo "text-error" ?>">
         </div>
         <div class="col-5 col-sm-12">
             <select class="form-select select" name="modello" id="modello">
-                <?php foreach ($modelli as $modello): ?>
-                    <option><?= $modello['modello'] ?></option>
-                <?php endforeach; ?>
+                <?php if ($lmodello == ''): ?>
+                    <?php foreach ($modelli as $modello): ?>
+                        <option><?= $modello['modello'] ?></option>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                <?php if ($lmodello != ''): ?>
+                    <?php foreach ($modelli as $modello): ?>
+                        <option <?php if ($modello['modello'] == $lmodello) echo 'selected'; ?>><?= $modello['modello'] ?></option>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </select>
         </div>
         <div class="col-5 col-sm-12">
-            <input class="form-input" name="Amodello" type="text" id="modello" placeholder="Modello non presente">
+            <input class="form-input" name="Amodello" type="text" id="modello" placeholder="Modello non presente"
+                   value="<?= $lamodello ?>">
         </div>
     </div>
 
@@ -161,13 +178,21 @@ else if ($buonfine == -1) echo "text-error" ?>">
         </div>
         <div class="col-5 col-sm-12">
             <select class="form-select select" name="colore" id="colore">
-                <?php foreach ($colori as $colore): ?>
-                    <option><?= $colore['colore'] ?></option>
-                <?php endforeach; ?>
+                <?php if ($lcolore == ''): ?>
+                    <?php foreach ($colori as $colore): ?>
+                        <option><?= $colore['colore'] ?></option>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                <?php if ($lcolore != ''): ?>
+                    <?php foreach ($colori as $colore): ?>
+                        <option <?php if ($colore['colore'] == $lcolore) echo 'selected'; ?>><?= $colore['colore'] ?></option>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </select>
         </div>
         <div class="col-5 col-sm-12">
-            <input class="form-input" name="Acolore" type="text" id="colore" placeholder="Colore non presente">
+            <input class="form-input" name="Acolore" type="text" id="colore" placeholder="Colore non presente"
+                   value="<?= $lacolore ?>">
         </div>
     </div>
     <input type="submit" class="btn btn-primary" value="Aggiungi il veicolo">

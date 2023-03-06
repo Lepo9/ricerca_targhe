@@ -57,9 +57,9 @@ if ($buonfine == 1) {
     $lnome = $nome_proprietario;
     $lcognome = $cognome_proprietario;
     $lcodice_fiscale = $codice_fiscale;
-    $lmarca = $marca;
-    $lmodello = $modello;
-    $lcolore = $colore;
+    $lmarca = $_POST['marca'];
+    $lmodello = $_POST['modello'];
+    $lcolore = $_POST['colore'];
     $lamarca = $_POST['Amarca'];
     $lamodello = $_POST['Amodello'];
     $lacolore = $_POST['Acolore'];
