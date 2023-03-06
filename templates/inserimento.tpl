@@ -18,10 +18,15 @@
 
 ?>
 
+<div class="columns">
+    <div class="column col-1"><a href="index.php"><span class="material-symbols-outlined">arrow_back</span>
+            </i></a></div>
+    <div class="column col-10"><h2 class="text-center">Inserisci i dati del nuovo veicolo</h2>
+    </div>
+</div>
 
-<h2 class="text-center">Inserisci i dati del nuovo veicolo</h2>
 
-<div class="form-horizontal">
+<form class="form-horizontal" method="post" action="index.php">
 
     <h5 class="text-center">Proprietario</h5>
     <p class="text-center">Selezionare un proprietario dal menù a tendina. Se non è presente, compilare i campi
@@ -82,7 +87,7 @@
             <label class="form-label" for="targa">Targa del nuovo veicolo</label>
         </div>
         <div class="col-3 col-sm-12">
-            <input class="form-input" name="Atarga" type="text" id="targa" placeholder="CD985FM">
+            <input required class="form-input" name="Atarga" type="text" id="targa" placeholder="CD985FM">
         </div>
     </div>
 
@@ -135,7 +140,7 @@
     </div>
     <input type="submit" class="btn btn-primary" value="Aggiungi il veicolo">
 
-</div>
+</form>
 
 
 

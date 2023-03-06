@@ -20,7 +20,6 @@
 
 ?>
 
-
 <h2 class="text-center">Inserisci i dati (anche parziali) del veicolo che vuoi cercare</h2>
 <h4 class="text-center">Spunta solo le caselle con le informazioni che conosci</h4>
 

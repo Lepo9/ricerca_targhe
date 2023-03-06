@@ -172,5 +172,4 @@ class Getter
             'codice_fiscale' => $proprietario['codice_fiscale'],
         ]);
     }
-
 }
