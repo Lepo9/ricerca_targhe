@@ -25,6 +25,7 @@ $lacolore = '';
 
 $buonfine = 0;
 $nuovo_proprietario = true;
+$t = 0;
 if (isset($_POST['id_proprietario'])) {
     $buonfine = 1;
     $id_proprietario = $_POST['id_proprietario'];
@@ -36,7 +37,7 @@ if (isset($_POST['id_proprietario'])) {
     $modello = $_POST['modello'];
     $colore = $_POST['colore'];
 
-    $t = 0;
+
     if ($nome_proprietario != "") $t++;
     if ($cognome_proprietario != "") $t++;
     if ($codice_fiscale != "") $t++;
@@ -49,6 +50,12 @@ if (isset($_POST['id_proprietario'])) {
 }
 if ($buonfine == 1) {
     $messaggio = "Veicolo aggiunto al db";
+    $idprop = "";
+    if ($t == 0) {
+        Model::aggiungiVeicoloId($id_proprietario, $targa, $marca, $modello, $colore,);
+    } else {
+        Model::aggiungiVeicoloCompl($nome_proprietario, $cognome_proprietario, $codice_fiscale, $targa, $marca, $modello, $colore,);
+    }
 
 } else if ($buonfine == -1) {
     $messaggio = "Errore: dati inseriti non validi";
