@@ -4,7 +4,7 @@ namespace Model;
 
 use Util\Connection;
 
-class Getter
+class Model
 {
     public static function getVeicoli(string $targa, string $marca, string $colore, string $modello): array
     {

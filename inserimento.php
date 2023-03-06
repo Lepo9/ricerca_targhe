@@ -4,7 +4,7 @@ require_once 'vendor/autoload.php';
 require_once 'conf/config.php';
 
 use League\Plates\Engine;
-use Model\Getter;
+use Model\Model;
 
 
 $template = new Engine('templates', 'tpl');
@@ -66,13 +66,13 @@ if ($buonfine == 1) {
 }
 
 
-$marche = Getter::getMarche();
+$marche = Model::getMarche();
 
-$modelli = Getter::getModelli();
+$modelli = Model::getModelli();
 
-$colori = Getter::getColori();
+$colori = Model::getColori();
 
-$proprietari = Getter::getProprietari();
+$proprietari = Model::getProprietari();
 
 $data = [
     'buonfine' => $buonfine,
