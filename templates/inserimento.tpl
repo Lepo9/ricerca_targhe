@@ -48,7 +48,7 @@ else if ($buonfine == -1) echo "text-error" ?>">
 
     <h5 class="text-center">Proprietario</h5>
     <p class="text-center">Selezionare un proprietario dal menù a tendina. Se non è presente, compilare i campi
-        singoli; quello selezionato nel menù a tendina verrà ignorata.</p>
+        singoli; quello selezionato nel menù a tendina verrà ignorato.</p>
 
     <div class="form-group">
         <div class="col-3 col-sm-12">
@@ -82,7 +82,8 @@ else if ($buonfine == -1) echo "text-error" ?>">
             <label class="form-label" for="n_proprietario">Nome del proprietario</label>
         </div>
         <div class="col-5 col-sm-12">
-            <input class="form-input" name="n_proprietario" type="text" id="n_proprietario" placeholder="Mario">
+            <input class="form-input" name="n_proprietario" type="text" id="n_proprietario" placeholder="Mario"
+                   value="<?= $lnome ?>">
         </div>
     </div>
 
@@ -91,7 +92,8 @@ else if ($buonfine == -1) echo "text-error" ?>">
             <label class="form-label" for="c_proprietario">Cognome del proprietario</label>
         </div>
         <div class="col-5 col-sm-12">
-            <input class="form-input" name="c_proprietario" type="text" id="c_proprietario" placeholder="Rossi">
+            <input class="form-input" name="c_proprietario" type="text" id="c_proprietario" placeholder="Rossi"
+                   value="<?= $lcognome ?>">
         </div>
     </div>
 
@@ -100,7 +102,8 @@ else if ($buonfine == -1) echo "text-error" ?>">
             <label class="form-label" for="cf">Codice fiscale del proprietario</label>
         </div>
         <div class="col-5 col-sm-12">
-            <input class="form-input" name="cf" type="text" id="cf" placeholder="RBLMRC05L67C618Q">
+            <input class="form-input" name="cf" type="text" id="cf" placeholder="RBLMRC05L67C618Q"
+                   value="<?= $lcodice_fiscale ?>">
         </div>
     </div>
 
@@ -115,7 +118,8 @@ else if ($buonfine == -1) echo "text-error" ?>">
             <label class="form-label" for="targa">Targa del nuovo veicolo</label>
         </div>
         <div class="col-3 col-sm-12">
-            <input required class="form-input" name="targa" type="text" id="targa" placeholder="CD985FM">
+            <input required class="form-input" name="targa" type="text" id="targa" placeholder="CD985FM"
+                   value="<?= $ltarga ?>">
         </div>
     </div>
 
