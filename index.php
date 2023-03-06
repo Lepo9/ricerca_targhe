@@ -4,7 +4,7 @@ require_once 'vendor/autoload.php';
 require_once 'conf/config.php';
 
 use League\Plates\Engine;
-use Model\Getter;
+use Model\Model;
 
 $template = new Engine('templates', 'tpl');
 
@@ -20,12 +20,12 @@ if (isset($_POST['targa'])) {
     $coloreCorrente = $_POST['colore'];
 }
 
-$marche = Getter::getMarche();
-$modelli = Getter::getModelli();
-$colori = Getter::getColori();
+$marche = Model::getMarche();
+$modelli = Model::getModelli();
+$colori = Model::getColori();
 
 
-$veicoli = Getter::getVeicoli($targaCorrente, $marcaCorrente, $coloreCorrente, $modelloCorrente);
+$veicoli = Model::getVeicoli($targaCorrente, $marcaCorrente, $coloreCorrente, $modelloCorrente);
 
 //var_dump($veicoli);
 
